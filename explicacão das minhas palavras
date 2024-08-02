@@ -1,0 +1,33 @@
+#Usei input com int pra garantir que o usuário coloque um número inteiro para a quantidade de produtos que quer registrar
+quantidade_produtos = int(input("Quantos produtos você deseja cadastrar? ")) 
+
+#Criei uma lista chamada lista_produtos para guardar as informações de cada produto
+lista_produtos = []  
+
+#Usei um for para criar um loop, onde o _ é uma variável que não é usada, e in define quantas vezes o loop vai rodar, baseado no número de produtos que o usuário quer cadastrar
+for _ in range(quantidade_produtos):
+#No loop, pedi pro usuário colocar o nome, a quantidade e o preço de cada produto. Guardei essas infos num dicionário chamado produto e depois coloquei na lista chamada lista_produtos
+    nome = input("Digite o nome do produto: ")
+    quantidade = int(input("Digite a quantidade do produto: "))
+    preco = float(input("Digite o preço do produto: "))
+    
+    produto = {"nome": nome, "quantidade": quantidade, "preco": preco}
+    lista_produtos.append(produto)
+#Depois do loop, criei duas variáveis, soma_quantidades e soma_precos, para armazenar as somas das quantidades e dos preços.
+
+soma_quantidades = 0
+soma_precos = 0
+
+#No final, fiz um print pra mostrar os nomes de todos os produtos cadastrados, somei todas as quantidades e preços dos produtos, calculei a média dos preços 
+# dividindo soma_precos por soma_quantidades e mostrei a soma total das quantidades e a média dos preços com print.
+
+print("\nNomes dos produtos cadastrados:")
+for produto in lista_produtos:
+    print(produto["nome"])
+    soma_quantidades += produto["quantidade"]
+    soma_precos += produto["preco"]
+
+media_precos = soma_precos / soma_quantidades
+
+print("\nSoma de todas as quantidades:", soma_quantidades)
+print("Média dos preços:", media_precos)
